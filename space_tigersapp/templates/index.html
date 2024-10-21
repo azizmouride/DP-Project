@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mt-6 px-6 py-12 bg-light rounded">
+  <h2 class="mb-12 text-2xl text-center">PRODUCTS</h2>
+  <div class="row">
+    {% for product in products %}
+      <div class="col-md-4 mb-4"> <!-- Bootstrap column for responsive layout -->
+          <div class="card shadow border border-secondary" style="width: 20rem; background-image: url('{{ product.background_image_url }}'); background-size: cover; background-position: center;"> <!-- Background image -->
+              <div class="border-bottom"> <!-- Border below the image -->
+                  <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="height: 450px; width: 700px; object-fit: contain;"> <!-- Use contain to show full image -->
+              </div>
+              <div class="card-body d-flex flex-column" style="background-color: rgba(249, 248, 248, 0.8);"> <!-- Slightly transparent white background for text readability -->
+                  <div class="d-flex justify-content-between align-items-center mb-2"> <!-- Flex container for name and button -->
+                      <div class="text-start"> <!-- Left-aligned name and price -->
+                          <h5 class="card-title font-weight-bold">{{ product.name }}</h5> <!-- Bold name -->
+                          <p class="card-text font-weight-bold">Price: {{ product.price }}</p> <!-- Bold price -->
+                      </div>
+                      <div> <!-- Right-aligned button -->
+                          <a href="#" class="btn btn-primary">Buy</a>
+                        
+                        </div>
+                       </div>
+              </div>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
